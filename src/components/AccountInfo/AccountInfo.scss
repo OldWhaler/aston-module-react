@@ -1,0 +1,10 @@
+.account {
+  display: flex;
+  align-items: center;
+  column-gap: 9px;
+
+  &__name {
+    margin: 0;
+    color: #87c65d;
+  }
+}
