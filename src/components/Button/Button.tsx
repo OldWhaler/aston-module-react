@@ -1,9 +1,11 @@
-import { ButtonProps } from '../../Types/types';
-import './Button.scss'
+import './Button.scss';
+interface ButtonProps {
+  text: string
+  isColored: boolean
+}
 
 const Button = ({ text, isColored }: ButtonProps) => {
   const colored = isColored ? 'button_colored' : '';
-
 
   return (
     <button className={`button ${colored}`}>
