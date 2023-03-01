@@ -1,9 +1,19 @@
+import { BrowserRouter } from 'react-router-dom'
+
+import { Layout } from '../Layout';
+
 import './App.scss';
 
-export function App() {
+function App() {
   return (
-    <div className="App">
+    <div className="container">
+      <BrowserRouter>
 
+        <Layout />
+
+      </BrowserRouter>
     </div>
   );
 }
+
+export { App }
