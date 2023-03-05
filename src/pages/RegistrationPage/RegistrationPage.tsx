@@ -7,7 +7,6 @@ import { setNewUserDataInStore } from '../../store/userSlice';
 import { isUserInLocalStorage } from '../../helpers/isUserInLocalStorage';
 
 import './RegistrationPage.scss';
-
 interface FormValues {
   login: string;
   password: string;
@@ -30,7 +29,7 @@ const RegistrationPage = () => {
 
   const onSubmit = ({ login, password }: FormValues) => {
     dispatch(setNewUserDataInStore({
-      loginName: login,
+      name: login,
       password,
       favorites: [],
       history: [],

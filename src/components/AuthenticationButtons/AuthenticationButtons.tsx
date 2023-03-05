@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import { Button } from '../Button';
 
 import './AuthenticationButtons.scss';
@@ -7,11 +5,8 @@ import './AuthenticationButtons.scss';
 const AuthenticationButtons = () => {
   return (
     <div className='authentication'>
-      <Link to='registration'>
-        <Button text='зарегистрироваться' isColored={false} />
-      </Link>
-
-      <Button text='войти' isColored={true} />
+      <Button text='зарегистрироваться' isColored={false} to='registration' />
+      <Button text='войти' isColored={true} to='/' />
     </div>
   )
 }

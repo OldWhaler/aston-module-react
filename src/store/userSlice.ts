@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
 export interface UserData {
-  loginName: string
+  name: string
   password: string
   favorites: number[]
   history: string[]
@@ -9,7 +8,7 @@ export interface UserData {
 };
 
 const initialState: UserData = {
-  loginName: '',
+  name: '',
   password: '',
   favorites: [],
   history: [],
@@ -21,15 +20,15 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setNewUserDataInStore(state, action: PayloadAction<UserData>) {
-      const { loginName, isLogged, password } = action.payload;
-      state.loginName = loginName;
+      const { name, isLogged, password } = action.payload;
+      state.name = name;
       state.isLogged = isLogged;
       state.password = password;
     },
 
     setUserDataFromLocalStorage(state, action: PayloadAction<UserData>) {
-      const { loginName, isLogged, password, favorites, history } = action.payload;
-      state.loginName = loginName;
+      const { name, isLogged, password, favorites, history } = action.payload;
+      state.name = name;
       state.isLogged = isLogged;
       state.password = password;
       state.favorites = favorites;
@@ -48,7 +47,7 @@ const userSlice = createSlice({
       state.favorites = [];
       state.history = [];
       state.isLogged = false;
-      state.loginName = '';
+      state.name = '';
       state.password = '';
     }
   }
