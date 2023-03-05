@@ -1,0 +1,57 @@
+.registration {
+  position: relative;
+  margin: 10px auto 0 auto;
+  width: 35%;
+
+  &__link {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &__form {
+    background-color: #fafafa;
+    padding: 40px 15px 15px 15px;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  &__input {
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  &__submit {
+    align-self: center;
+    font-size: 16px;
+    padding: 7px;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__warning {
+    height: 15px;
+    margin: 0;
+    padding-left: 5px;
+    font-size: 11px;
+    color: #f00;
+  }
+}
