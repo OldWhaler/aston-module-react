@@ -2,20 +2,33 @@ import { Middleware } from 'redux';
 import { UserData } from '../store/userSlice';
 
 export const localStorageMiddleware: Middleware = store => next => action => {
-  const localStorageUsersString = localStorage.getItem('users') as string;
-  const users: UserData[] = JSON.parse(localStorageUsersString);
-
   switch (action.type) {
-    case 'userData/setNewUserDataInStore':
-      localStorage.setItem('users', JSON.stringify([...users, action.payload]));
+    case 'userData/setNewUserDataInStore': {
+      const localStorageUsersString = localStorage.getItem('users');
+
+      if (localStorageUsersString) {
+        const users: UserData[] = JSON.parse(localStorageUsersString);
+        localStorage.setItem('users', JSON.stringify([...users, action.payload]));
+      }
+    }
       break;
 
-    case 'userData/returnToInitialState':
-      const newUsersList: UserData[] = users.map(user => {
-        user.isLogged = false;
-        return user
-      });
-      localStorage.setItem('users', JSON.stringify(newUsersList))
+    case 'userData/returnToInitialState': {
+      const localStorageUsersString = localStorage.getItem('users');
+
+      if (localStorageUsersString) {
+        const users: UserData[] = JSON.parse(localStorageUsersString);
+        const currentUser = store.getState().userSlice;
+
+        const newUsersList: UserData[] = users.map(user => {
+          if (user.name === currentUser.name) {
+            user.isLogged = false;
+          }
+          return user
+        });
+        localStorage.setItem('users', JSON.stringify(newUsersList))
+      }
+    }
       break;
 
     default:

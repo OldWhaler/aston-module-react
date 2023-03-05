@@ -5,17 +5,12 @@ interface ButtonProps {
   text: string
   isColored: boolean
   to: string
-  clickHandler?: () => void
 }
 
-const Button = ({ text, isColored, clickHandler, to }: ButtonProps) => {
+const Button = ({ text, isColored, to }: ButtonProps) => {
   const colored = isColored ? 'button_colored' : '';
 
-  return (
-    <Link to={to} className={`button ${colored}`} onClick={clickHandler}>
-      {text}
-    </ Link>
-  )
+  return <Link to={to} className={`button ${colored}`}>{text}</ Link>
 }
 
 export { Button }

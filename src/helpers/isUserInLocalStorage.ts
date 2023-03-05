@@ -4,5 +4,5 @@ export const isUserInLocalStorage = (login: string) => {
   const usersString = localStorage.getItem('users') as string;
   const users: UserData[] = JSON.parse(usersString);
 
-  return !!users.find(user => user.name === login)
+  return users.some(user => user.name === login)
 }

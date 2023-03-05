@@ -1,21 +1,30 @@
 import { Routes, Route } from 'react-router';
-import { Provider } from 'react-redux';
 
-import store from '../../store';
 import { Layout } from '../Layout';
 import { RegistrationPage } from '../../pages/RegistrationPage';
 
 import './App.scss';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { useEffect } from 'react';
+import { getLoggedUser } from '../../helpers/getLoggedUser';
+import { setUserDataFromLocalStorage } from '../../store/userSlice';
 
 function App() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const loggedUser = getLoggedUser();
+    if (loggedUser) {
+      dispatch(setUserDataFromLocalStorage(loggedUser))
+    }
+  }, [])
+
   return (
-    <Provider store={store}>
-      <Routes>
-        <Route path='/' element={<Layout />} >
-          <Route path='registration' element={<RegistrationPage />} />
-        </Route>
-      </Routes>
-    </Provider>
+    <Routes>
+      <Route path='/' element={<Layout />} >
+        <Route path='registration' element={<RegistrationPage />} />
+      </Route>
+    </Routes>
   );
 }
 

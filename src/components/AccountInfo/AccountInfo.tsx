@@ -10,17 +10,17 @@ const AccountInfo = () => {
   const dispatch = useAppDispatch();
   const login = useAppSelector(store => store.userSlice.name);
 
-  const exitButtonClickHandler = () => {
-    dispatch(returnToInitialState());
-  }
-
   return (
-    <div className='account'>
+    <nav className='account'>
       <p className='account__name'>{login}</p>
-      <Button text='избранное' isColored={false} to='favorites' />
-      <Button text='история' isColored={false} to='history' />
-      <Button text='выйти' isColored={true} clickHandler={exitButtonClickHandler} to='/' />
-    </div>
+      <ul className='account__row'>
+        <li><Button text='избранное' isColored={false} to='favorites' /></li>
+        <li><Button text='история' isColored={false} to='history' /></li>
+        <li onClick={() => dispatch(returnToInitialState())}>
+          <Button text='выйти' isColored={true} to='/' />
+        </li>
+      </ul>
+    </nav>
   )
 }
 
