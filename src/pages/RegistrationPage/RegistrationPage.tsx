@@ -57,14 +57,11 @@ const RegistrationPage = () => {
                   value: 4,
                   message: 'Логин должен содержать не менее 4-х символов'
                 },
-                validate: (value) => !isUserInLocalStorage(value)
+                validate: (value) => !isUserInLocalStorage(value) || 'Такой пользователь уже существует'
               }
             )}
           />
-          <p className='registration__warning'>
-            {errors?.login?.type === 'validate' && 'Такой пользователь уже существует'}
-            {errors?.login?.message || ''}
-          </p>
+          <p className='registration__warning'>{errors?.login?.message || ''}</p>
         </div>
 
         <div className='registration__wrapper'>
