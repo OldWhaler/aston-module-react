@@ -1,19 +1,23 @@
-import { Routes, Route } from 'react-router';
+import { Routes, Route, Navigate } from 'react-router';
+import { useEffect } from 'react';
 
 import { Layout } from '../Layout';
 import { RegistrationPage } from '../../pages/RegistrationPage';
+import { LoginPage } from '../../pages/LoginPage';
+import { HistoryPage } from '../../pages/HistoryPage';
+import { FavoritesPage } from '../../pages/FavoritesPage';
+
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { searchLoggedUserInLocalStorage } from '../../helpers/searchLoggedUserInLocalStorage';
+import { setUserDataFromLocalStorage } from '../../store/userSlice';
 
 import './App.scss';
-import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { useEffect } from 'react';
-import { getLoggedUser } from '../../helpers/getLoggedUser';
-import { setUserDataFromLocalStorage } from '../../store/userSlice';
 
 function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const loggedUser = getLoggedUser();
+    const loggedUser = searchLoggedUserInLocalStorage();
     if (loggedUser) {
       dispatch(setUserDataFromLocalStorage(loggedUser))
     }
@@ -23,6 +27,10 @@ function App() {
     <Routes>
       <Route path='/' element={<Layout />} >
         <Route path='registration' element={<RegistrationPage />} />
+        <Route path='login' element={<LoginPage />} />
+        <Route path='history' element={<HistoryPage />} />
+        <Route path='favorites' element={<FavoritesPage />} />
+        <Route path='*' element={<Navigate to='/' replace />} />
       </Route>
     </Routes>
   );
