@@ -1,9 +1,15 @@
 import { Middleware } from 'redux';
 import { UserData } from '../store/userSlice';
 
+import {
+  setNewUserDataInStore,
+  returnToInitialState,
+  setUserDataFromLocalStorage
+} from '../store/userSlice';
+
 export const localStorageMiddleware: Middleware = store => next => action => {
   switch (action.type) {
-    case 'userData/setNewUserDataInStore': {
+    case setNewUserDataInStore.type: {
       const localStorageUsersString = localStorage.getItem('users');
 
       if (localStorageUsersString) {
@@ -13,7 +19,7 @@ export const localStorageMiddleware: Middleware = store => next => action => {
     }
       break;
 
-    case 'userData/returnToInitialState': {
+    case returnToInitialState.type: {
       const localStorageUsersString = localStorage.getItem('users');
 
       if (localStorageUsersString) {
@@ -31,7 +37,7 @@ export const localStorageMiddleware: Middleware = store => next => action => {
     }
       break;
 
-    case 'userData/setUserDataFromLocalStorage': {
+    case setUserDataFromLocalStorage.type: {
       const localStorageUsersString = localStorage.getItem('users');
 
       if (localStorageUsersString) {
