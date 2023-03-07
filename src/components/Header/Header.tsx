@@ -1,14 +1,13 @@
 import { useNavigate } from 'react-router-dom';
+import { useAppSelector } from '../../hooks/useAppSelector';
 
 import { AuthenticationButtons } from '../AuthenticationButtons';
 import { AccountInfo } from '../AccountInfo';
 
-import './Header.scss'
+import './Header.scss';
 
 const Header = () => {
-
-  const isLogged = false; //Заглушка регистрации
-
+  const isLogged = useAppSelector((store) => store.userSlice.isLogged);
   const navigate = useNavigate();
 
   return (
