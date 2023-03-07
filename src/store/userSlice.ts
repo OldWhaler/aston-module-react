@@ -5,7 +5,7 @@ export interface UserData {
   history: string[]
   isLogged: boolean
 };
-interface UserDataInLocalStorage extends UserData {
+export interface UserDataInLocalStorage extends UserData {
   password: string
 }
 

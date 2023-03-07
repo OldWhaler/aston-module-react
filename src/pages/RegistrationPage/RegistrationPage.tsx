@@ -18,6 +18,7 @@ const RegistrationPage = () => {
 
   const {
     register,
+    getFieldState,
     formState: {
       errors,
       isValid
@@ -39,14 +40,15 @@ const RegistrationPage = () => {
   }
 
   return (
-    //! Переделать путь в Link кнопки войти когда страница входа будет реализована
     <div className='registration'>
-      <Link to='/' className='registration__link'>Войти</Link>
+      <Link to='/login' className='registration__link'>Войти</Link>
 
-      <form className='registration__form' onSubmit={handleSubmit(onSubmit)}>
+      <form className='registration__form' onSubmit={handleSubmit(onSubmit)} autoComplete='on'>
 
         <div className='registration__wrapper'>
           <input
+            type='text'
+            autoComplete='username'
             className='registration__input'
             placeholder='Login'
             {...register(
@@ -61,11 +63,14 @@ const RegistrationPage = () => {
               }
             )}
           />
-          <p className='registration__warning'>{errors?.login?.message || ''}</p>
+
+          {getFieldState('login').invalid && <p className='registration__warning'>{errors?.login?.message}</p>}
+
         </div>
 
         <div className='registration__wrapper'>
           <input
+            autoComplete='new-password'
             className='registration__input'
             type="password"
             placeholder='Password'
@@ -80,7 +85,7 @@ const RegistrationPage = () => {
               }
             )}
           />
-          <p className='registration__warning'>{errors?.password?.message || ''}</p>
+          {getFieldState('password').invalid && <p className='registration__warning'>{errors?.password?.message}</p>}
         </div>
 
         <input type="submit" value="Зарегистрироваться" className='registration__submit' disabled={!isValid} />

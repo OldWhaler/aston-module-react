@@ -31,6 +31,24 @@ export const localStorageMiddleware: Middleware = store => next => action => {
     }
       break;
 
+    case 'userData/setUserDataFromLocalStorage': {
+      const localStorageUsersString = localStorage.getItem('users');
+
+      if (localStorageUsersString) {
+        const users: UserData[] = JSON.parse(localStorageUsersString);
+        const currentUserName = action.payload.name;
+
+        const newUsersList: UserData[] = users.map(user => {
+          if (user.name === currentUserName) {
+            user.isLogged = true;
+          }
+          return user
+        });
+        localStorage.setItem('users', JSON.stringify(newUsersList))
+      }
+    }
+      break;
+
     default:
       break;
   }
