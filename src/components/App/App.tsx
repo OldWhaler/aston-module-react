@@ -6,6 +6,7 @@ import { RegistrationPage } from '../../pages/RegistrationPage';
 import { LoginPage } from '../../pages/LoginPage';
 import { HistoryPage } from '../../pages/HistoryPage';
 import { FavoritesPage } from '../../pages/FavoritesPage';
+import { HomePage } from '../../pages/HomePage';
 
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { searchLoggedUserInLocalStorage } from '../../helpers/searchLoggedUserInLocalStorage';
@@ -26,6 +27,7 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Layout />} >
+        <Route index element={<HomePage />} />
         <Route path='registration' element={<RegistrationPage />} />
         <Route path='login' element={<LoginPage />} />
         <Route path='history' element={<HistoryPage />} />
