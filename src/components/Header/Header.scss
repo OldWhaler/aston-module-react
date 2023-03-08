@@ -1,5 +1,5 @@
 .header {
-  height: 150px;
+  height: 200px;
   padding: 0 70px 20px 70px;
 
   display: flex;
@@ -7,10 +7,11 @@
   justify-content: space-between;
 
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)),
-    url('../../../public/images/background.webp') center/cover no-repeat;
+    url('../../../public/images/background.jpg') center/cover no-repeat;
 
 
   &__logo {
+    height: 100px;
     cursor: pointer;
   }
 }

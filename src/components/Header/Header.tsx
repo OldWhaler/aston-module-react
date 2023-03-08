@@ -16,7 +16,7 @@ const Header = () => {
       <img
         className="header__logo"
         onClick={() => navigate('/')}
-        src={`${__dirname}images/logo.webp`}
+        src={`${__dirname}images/logo.png`}
         alt="logo"
       />
 
