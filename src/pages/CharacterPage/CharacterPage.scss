@@ -1,0 +1,71 @@
+.character-page {
+  position: relative;
+  height: 500px;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #3C3E44;
+
+  display: flex;
+  align-items: center;
+  column-gap: 50px;
+
+  color: #fff;
+  border-radius: 9px;
+  font-size: 25px;
+
+  &__image {
+    width: 40%;
+    border-radius: 9px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
+  &__title {
+    font-size: 30px;
+    margin: 0;
+  }
+
+  &__checkbox {
+    position: absolute;
+    left: -9999px;
+
+    &:checked {
+      &+label {
+        background-image: url('../../../public/images/favorite-star-gold.svg');
+      }
+    }
+  }
+
+  &__checkbox-label {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: block;
+    width: 48px;
+    height: 48px;
+
+    background-image: url('../../../public/images/favorite-star-white.svg');
+  }
+}
+
+.status {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+
+  &-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+}
