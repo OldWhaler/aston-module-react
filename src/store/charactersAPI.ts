@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
 export interface CharacterInfo {
   id: number
   name: string
@@ -20,7 +19,6 @@ export interface CharacterInfo {
   url: string,
   created: string
 }
-
 export interface AllCharactersInfo {
   info: {
     count: number
@@ -39,7 +37,14 @@ export const charactersAPI = createApi({
       query: (page) => `character/?page=${page}`,
       transformResponse: (response: { results: CharacterInfo[] }) => response.results
     }),
+    getCharacterById: builder.query<CharacterInfo, string>({
+      query: (id) => `character/${id}`,
+    }),
+    getMultipleCharacters: builder.query<CharacterInfo[], string>({
+      query: (ids) => `character/${ids}`,
+      transformResponse: (response: CharacterInfo[]) => Array.isArray(response) ? response : [response]
+    }),
   }),
 })
 
-export const { useGetAllCharactersQuery } = charactersAPI;
+export const { useGetAllCharactersQuery, useGetCharacterByIdQuery, useGetMultipleCharactersQuery } = charactersAPI;

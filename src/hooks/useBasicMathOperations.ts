@@ -4,10 +4,8 @@ export const useBasicMathOperations = (min: number, max: number, initialValue = 
   const [number, setNumber] = useState(initialValue);
 
   const increment = () => {
-    console.log('!!!')
     setNumber(prev => prev === max ? min : prev + 1)
   }
-
 
   const decrement = () => {
     setNumber(prev => prev === min ? max : prev - 1)

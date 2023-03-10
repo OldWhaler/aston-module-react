@@ -23,6 +23,18 @@ li {
   list-style: none;
 }
 
+.loading-message,
+.error-message {
+  color: #87c65d;
+  text-align: center;
+  margin: 15px auto;
+  font-size: 30px;
+}
+
+.error-message {
+  color: #D63D2E;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

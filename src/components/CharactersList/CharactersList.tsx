@@ -9,11 +9,10 @@ const emptyArray: CharacterInfo[] = [];
 
 const CharactersList = () => {
   const { increment, decrement, number } = useBasicMathOperations(1, 42);
-
   const { data: characters = emptyArray, isError, isLoading } = useGetAllCharactersQuery(number);
 
   if (isError) return <h2 className='homepage-error-message'>Что-то пошло не так. Попробуйте зайти позже!</h2>;
-  if (isLoading) return <h2 className='homepage-loading-message'>Данные загружаются...</h2>;
+  if (isLoading) return <h2 className='loading-message'>Данные загружаются...</h2>;
 
   return (
     <>
