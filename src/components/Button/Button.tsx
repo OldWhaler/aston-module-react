@@ -10,7 +10,7 @@ interface ButtonProps {
 const Button = ({ text, isColored, to }: ButtonProps) => {
   const colored = isColored ? 'button_colored' : '';
 
-  return <Link to={to} className={`button ${colored}`}>{text}</ Link>
-}
+  return <Link to={to} className={`button ${colored}`}>{text}</ Link>;
+};
 
-export { Button }
+export { Button };

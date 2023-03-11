@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+
 import { Button } from '../Button';
 
 import { useAppDispatch } from '../../hooks/useAppDispatch';
@@ -14,8 +15,8 @@ const AccountInfo = () => {
 
   const exitButtonClickHandler = () => {
     dispatch(returnToInitialState());
-    navigate('/')
-  }
+    navigate('/');
+  };
 
   return (
     <nav className='account'>
@@ -25,13 +26,13 @@ const AccountInfo = () => {
         <li><Button text='история' isColored={false} to='history' /></li>
         <li>
           <button
-            className={`button button_colored`}
+            className={'button button_colored'}
             onClick={exitButtonClickHandler}
           >выйти</button>
         </li>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export { AccountInfo }
+export { AccountInfo };

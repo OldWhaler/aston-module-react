@@ -10,7 +10,7 @@ import { store } from './store';
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
-if (!localStorage.getItem('users')) localStorage.setItem('users', JSON.stringify([]))
+if (!localStorage.getItem('users')) localStorage.setItem('users', JSON.stringify([]));
 
 root.render(
   <React.StrictMode>

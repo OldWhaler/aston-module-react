@@ -1,7 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { charactersAPI } from './charactersAPI';
 
 import { localStorageMiddleware } from '../middleware/localStorageMiddleware';
+
+import { charactersAPI } from './charactersAPI';
+
 import userSlice from './userSlice';
 
 export const store = configureStore({
@@ -10,7 +12,7 @@ export const store = configureStore({
     [charactersAPI.reducerPath]: charactersAPI.reducer
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(charactersAPI.middleware, localStorageMiddleware)
+    return getDefaultMiddleware().concat(charactersAPI.middleware, localStorageMiddleware);
   }
 });
 

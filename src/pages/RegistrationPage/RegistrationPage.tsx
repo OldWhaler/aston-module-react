@@ -35,9 +35,9 @@ const RegistrationPage = () => {
       favorites: [],
       history: [],
       isLogged: true
-    }))
-    navigate('/')
-  }
+    }));
+    navigate('/');
+  };
 
   return (
     <div className='registration'>
@@ -92,7 +92,7 @@ const RegistrationPage = () => {
       </form>
 
     </div>
-  )
-}
+  );
+};
 
-export { RegistrationPage }
+export { RegistrationPage };

@@ -1,4 +1,5 @@
 import { Middleware } from 'redux';
+
 import { UserData } from '../store/userSlice';
 
 import {
@@ -33,9 +34,9 @@ export const localStorageMiddleware: Middleware = store => next => action => {
           if (user.name === currentUser.name) {
             user.isLogged = false;
           }
-          return user
+          return user;
         });
-        localStorage.setItem('users', JSON.stringify(newUsersList))
+        localStorage.setItem('users', JSON.stringify(newUsersList));
       }
     }
       break;
@@ -51,9 +52,9 @@ export const localStorageMiddleware: Middleware = store => next => action => {
           if (user.name === currentUserName) {
             user.isLogged = true;
           }
-          return user
+          return user;
         });
-        localStorage.setItem('users', JSON.stringify(newUsersList))
+        localStorage.setItem('users', JSON.stringify(newUsersList));
       }
     }
       break;
@@ -67,11 +68,11 @@ export const localStorageMiddleware: Middleware = store => next => action => {
 
         const newUsersList: UserData[] = users.map(user => {
           if (user.name === currentUser.name) {
-            user.favorites.push(action.payload)
+            user.favorites.push(action.payload);
           }
-          return user
+          return user;
         });
-        localStorage.setItem('users', JSON.stringify(newUsersList))
+        localStorage.setItem('users', JSON.stringify(newUsersList));
       }
     }
       break;
@@ -105,9 +106,9 @@ export const localStorageMiddleware: Middleware = store => next => action => {
           if (user.name === currentUser.name && !user.history.includes(action.payload)) {
             user.history.push(action.payload);
           }
-          return user
+          return user;
         });
-        localStorage.setItem('users', JSON.stringify(newUsersList))
+        localStorage.setItem('users', JSON.stringify(newUsersList));
       }
     }
       break;
@@ -116,4 +117,4 @@ export const localStorageMiddleware: Middleware = store => next => action => {
       break;
   }
   next(action);
-}
+};
