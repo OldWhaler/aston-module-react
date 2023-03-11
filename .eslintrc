@@ -11,7 +11,10 @@
     "no-console": "warn",
     "quotes": [
       "error",
-      "single"
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
     ],
     "prefer-const": "error",
     "import/order": [

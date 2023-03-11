@@ -11,6 +11,15 @@ const FavoritesPage = () => {
   const favorites = useAppSelector(store => store.userSlice.favorites);
   const { data: characters, isError, isLoading } = useGetMultipleCharactersQuery(favorites.toString());
 
+  if (favorites.length === 0) {
+    return (
+      <>
+        <button className='button' onClick={() => navigate(-1)}>назад</button>
+        <h2 className='loading-message'>У Вас нет избранных персонажей.</h2>
+      </>
+    );
+  }
+
   if (isError) return <h2 className='error-message'>Что-то пошло не так. Попробуйте зайти позже!</h2>;
   if (isLoading) return <h2 className='loading-message'>Данные загружаются...</h2>;
 
