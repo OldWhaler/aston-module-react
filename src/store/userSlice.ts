@@ -39,7 +39,13 @@ const userSlice = createSlice({
     },
 
     removeFromFavorites(state, action: PayloadAction<number>) {
-      state.favorites = state.favorites.filter(id => id !== action.payload)
+      state.favorites = state.favorites.filter(id => id !== action.payload);
+    },
+
+    addToHistory(state, action: PayloadAction<string>) {
+      if (state.history.includes(action.payload)) return;
+
+      state.history.push(action.payload);
     },
 
     returnToInitialState(state) {
@@ -56,6 +62,7 @@ export const {
   returnToInitialState,
   addToFavorites,
   removeFromFavorites,
+  addToHistory,
   setUserDataFromLocalStorage } = userSlice.actions;
 
 export default userSlice.reducer;
