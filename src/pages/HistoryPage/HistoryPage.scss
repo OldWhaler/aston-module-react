@@ -1,0 +1,28 @@
+.history-page {
+  min-height: 800px;
+  margin: 15px 0;
+  padding: 15px 20px;
+  background-color: #3C3E44;
+  border-radius: 9px;
+  color: #fff;
+  font-size: 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  column-gap: 10px;
+
+  &__query {
+    color: #87c65d;
+    font-size: 26px;
+    font-weight: bold;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #0800ff;
+    font-size: 26px;
+    font-weight: bold;
+  }
+}
