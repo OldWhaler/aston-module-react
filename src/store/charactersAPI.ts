@@ -33,7 +33,7 @@ export const charactersAPI = createApi({
   reducerPath: 'charactersAPI',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://rickandmortyapi.com/api/' }),
   endpoints: (builder) => ({
-    getAllCharacters: builder.query<CharacterInfo[], number>({
+    getAllCharactersPerPage: builder.query<CharacterInfo[], number>({
       query: (page) => `character/?page=${page}`,
       transformResponse: (response: { results: CharacterInfo[] }) => response.results
     }),
@@ -44,7 +44,16 @@ export const charactersAPI = createApi({
       query: (ids) => `character/${ids}`,
       transformResponse: (response: CharacterInfo[]) => Array.isArray(response) ? response : [response]
     }),
+    getFilteredCharacters: builder.query<CharacterInfo[], string>({
+      query: (query) => `character/?name=${query}`,
+      transformResponse: (response: { results: CharacterInfo[] }) => response.results
+    }),
   }),
-})
+});
 
-export const { useGetAllCharactersQuery, useGetCharacterByIdQuery, useGetMultipleCharactersQuery } = charactersAPI;
+export const {
+  useGetAllCharactersPerPageQuery,
+  useGetCharacterByIdQuery,
+  useGetMultipleCharactersQuery,
+  useGetFilteredCharactersQuery,
+} = charactersAPI;
