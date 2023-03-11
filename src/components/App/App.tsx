@@ -22,7 +22,7 @@ function App() {
 
   const loggedUser = searchLoggedUserInLocalStorage();
   if (loggedUser) {
-    dispatch(setUserDataFromLocalStorage(loggedUser))
+    dispatch(setUserDataFromLocalStorage(loggedUser));
   }
 
   return (
@@ -49,4 +49,4 @@ function App() {
   );
 }
 
-export { App }
+export { App };

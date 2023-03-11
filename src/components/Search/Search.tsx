@@ -3,7 +3,7 @@ import { useInput } from '../../hooks/useInput';
 import './Search.scss';
 
 const Search = () => {
-  const input = useInput()
+  const input = useInput();
 
   return (
     <div className='search'>
@@ -15,7 +15,7 @@ const Search = () => {
       />
       <button className='button'>search</button>
     </div>
-  )
-}
+  );
+};
 
-export { Search }
+export { Search };

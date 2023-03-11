@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+
 import { useAppSelector } from '../../hooks/useAppSelector';
 
 import { AuthenticationButtons } from '../AuthenticationButtons';
@@ -22,7 +23,7 @@ const Header = () => {
 
       {isLogged ? <AccountInfo /> : <AuthenticationButtons />}
     </header>
-  )
-}
+  );
+};
 
-export { Header }
+export { Header };

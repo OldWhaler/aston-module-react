@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { useAppDispatch } from '../../hooks/useAppDispatch';
@@ -34,8 +34,8 @@ const LoginPage = () => {
     const user = getUserDataFromLocalStorage(login);
     user.isLogged = true;
     dispatch(setUserDataFromLocalStorage(user));
-    navigate('/')
-  }
+    navigate('/');
+  };
 
   return (
     <div className='login'>
@@ -91,7 +91,7 @@ const LoginPage = () => {
       </form>
 
     </div>
-  )
-}
+  );
+};
 
-export { LoginPage }
+export { LoginPage };

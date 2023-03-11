@@ -4,7 +4,7 @@ const HistoryPage = () => {
   return (
     <>
     </>
-  )
-}
+  );
+};
 
-export { HistoryPage }
+export { HistoryPage };

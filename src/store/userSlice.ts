@@ -35,7 +35,7 @@ const userSlice = createSlice({
     },
 
     addToFavorites(state, action: PayloadAction<number>) {
-      state.favorites.push(action.payload)
+      state.favorites.push(action.payload);
     },
 
     removeFromFavorites(state, action: PayloadAction<number>) {

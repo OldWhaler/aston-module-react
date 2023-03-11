@@ -19,13 +19,13 @@ const CharacterPage = () => {
 
   const checkboxChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      dispatch(addToFavorites(character?.id as number))
+      dispatch(addToFavorites(character?.id as number));
     } else {
-      dispatch(removeFromFavorites(character?.id as number))
+      dispatch(removeFromFavorites(character?.id as number));
     }
-  }
+  };
 
-  if (isError) return <h2 className='homepage-error-message'>Что-то пошло не так. Попробуйте зайти позже!</h2>;
+  if (isError) return <h2 className='error-message'>Что-то пошло не так. Попробуйте зайти позже!</h2>;
   if (isLoading) return <h2 className='loading-message'>Данные загружаются...</h2>;
 
   if (character) {
@@ -48,44 +48,44 @@ const CharacterPage = () => {
           }
 
           <div className="character-page__image">
-            <img src={character?.image} alt={character?.name} />
+            <img src={character.image} alt={character.name} />
           </div>
 
           <div className="character-page__text">
-            <h3 className="character-page__title">{character?.name}</h3>
+            <h3 className="character-page__title">{character.name}</h3>
 
             <div className="character-page__wrapper">
               <p>Status:</p>
               <p className='status'>
                 {
-                  character?.status !== 'unknown' &&
+                  character.status !== 'unknown' &&
                   <span className='status-indicator'
-                    style={{ backgroundColor: character?.status === 'Alive' ? '#55CC44' : '#D63D2E' }} />
+                    style={{ backgroundColor: character.status === 'Alive' ? '#55CC44' : '#D63D2E' }} />
                 }
-                <span>{character?.status}</span>
+                <span>{character.status}</span>
               </p>
             </div>
 
             <div className="character-page__wrapper">
               <p>Species:</p>
-              <p>{character?.species}</p>
+              <p>{character.species}</p>
             </div>
 
             <div className="character-page__wrapper">
               <p>Gender:</p>
-              <p>{character?.gender}</p>
+              <p>{character.gender}</p>
             </div>
 
             <div className="character-page__wrapper">
               <p>Last known location:</p>
-              <p>{character?.location.name}</p>
+              <p>{character.location.name}</p>
             </div>
           </div>
         </div>
       </>
-    )
+    );
   }
-  return null
-}
+  return null;
+};
 
-export { CharacterPage }
+export { CharacterPage };

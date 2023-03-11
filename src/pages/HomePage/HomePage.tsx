@@ -9,7 +9,7 @@ const HomePage = () => {
       <SearchForm defaultValue='' />
       <CharactersList />
     </div>
-  )
-}
+  );
+};
 
-export { HomePage }
+export { HomePage };

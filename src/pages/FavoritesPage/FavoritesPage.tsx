@@ -11,7 +11,7 @@ const FavoritesPage = () => {
   const favorites = useAppSelector(store => store.userSlice.favorites);
   const { data: characters, isError, isLoading } = useGetMultipleCharactersQuery(favorites.toString());
 
-  if (isError) return <h2 className='homepage-error-message'>Что-то пошло не так. Попробуйте зайти позже!</h2>;
+  if (isError) return <h2 className='error-message'>Что-то пошло не так. Попробуйте зайти позже!</h2>;
   if (isLoading) return <h2 className='loading-message'>Данные загружаются...</h2>;
 
   if (characters) {
@@ -22,9 +22,9 @@ const FavoritesPage = () => {
           {characters.map(character => <CharacterCard key={character.id} character={character} />)}
         </div>
       </>
-    )
+    );
   }
-  return null
-}
+  return null;
+};
 
-export { FavoritesPage }
+export { FavoritesPage };
