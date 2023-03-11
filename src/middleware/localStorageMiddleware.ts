@@ -6,6 +6,7 @@ import {
   returnToInitialState,
   setUserDataFromLocalStorage,
   addToFavorites,
+  addToHistory,
   removeFromFavorites
 } from '../store/userSlice';
 
@@ -84,7 +85,25 @@ export const localStorageMiddleware: Middleware = store => next => action => {
 
         const newUsersList: UserData[] = users.map(user => {
           if (user.name === currentUser.name) {
-            user.favorites = user.favorites.filter(id => id !== action.payload)
+            user.favorites = user.favorites.filter(id => id !== action.payload);
+          }
+          return user;
+        });
+        localStorage.setItem('users', JSON.stringify(newUsersList));
+      }
+    }
+      break;
+
+    case addToHistory.type: {
+      const localStorageUsersString = localStorage.getItem('users');
+
+      if (localStorageUsersString) {
+        const users: UserData[] = JSON.parse(localStorageUsersString);
+        const currentUser: UserData = store.getState().userSlice;
+
+        const newUsersList: UserData[] = users.map(user => {
+          if (user.name === currentUser.name && !user.history.includes(action.payload)) {
+            user.history.push(action.payload);
           }
           return user
         });

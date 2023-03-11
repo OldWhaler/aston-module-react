@@ -1,4 +1,4 @@
-import { Search } from '../../components/Search';
+import { SearchForm } from '../../components/SearchForm';
 import { CharactersList } from '../../components/CharactersList';
 
 import './HomePage.scss';
@@ -6,7 +6,7 @@ import './HomePage.scss';
 const HomePage = () => {
   return (
     <div className='homepage'>
-      <Search />
+      <SearchForm defaultValue='' />
       <CharactersList />
     </div>
   )
