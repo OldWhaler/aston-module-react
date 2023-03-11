@@ -9,8 +9,8 @@ const CharacterCard = ({ character }: { character: CharacterInfo }) => {
   const navigate = useNavigate();
 
   const cardClickHandler = () => {
-    navigate(`/character/${id}`)
-  }
+    navigate(`/character/${id}`);
+  };
 
   return (
     <li
@@ -18,12 +18,12 @@ const CharacterCard = ({ character }: { character: CharacterInfo }) => {
       onClick={cardClickHandler}
     >
       <div className="character-card__image">
-        <img src={image} alt={name} />{" "}
+        <img src={image} alt={name} />{' '}
       </div>
       <h2 className="character-card__title">{name}</h2>
       <p className="character-card__text">{species}</p>
     </li>
-  )
-}
+  );
+};
 
-export { CharacterCard }
+export { CharacterCard };

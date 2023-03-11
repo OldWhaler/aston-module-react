@@ -8,7 +8,7 @@ const AuthenticationButtons = () => {
       <Button text='зарегистрироваться' isColored={false} to='/registration' />
       <Button text='войти' isColored={true} to='/login' />
     </div>
-  )
-}
+  );
+};
 
-export { AuthenticationButtons }
+export { AuthenticationButtons };

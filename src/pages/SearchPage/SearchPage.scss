@@ -1,0 +1,21 @@
+.search-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__list {
+    width: 100%;
+    min-height: 800px;
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #3C3E44;
+    border-radius: 9px;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    row-gap: 10px;
+    column-gap: 10px;
+  }
+}
