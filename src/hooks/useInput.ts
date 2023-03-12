@@ -9,6 +9,7 @@ export const useInput = (initialValue = '') => {
 
   return {
     value,
+    setValue,
     onChange
   };
 };

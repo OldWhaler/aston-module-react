@@ -27,7 +27,7 @@ const SearchPage = () => {
       <>
         <button className='button' onClick={() => navigate(-1)}>назад</button>
         <div className='search-page'>
-          <SearchForm defaultValue={nameQuery} />
+          <SearchForm />
           <div className='search-page__list'>
             {characters.map(character => <CharacterCard key={character.id} character={character} />)}
           </div>

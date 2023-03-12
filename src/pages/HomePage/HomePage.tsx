@@ -6,7 +6,7 @@ import './HomePage.scss';
 const HomePage = () => {
   return (
     <div className='homepage'>
-      <SearchForm defaultValue='' />
+      <SearchForm />
       <CharactersList />
     </div>
   );
