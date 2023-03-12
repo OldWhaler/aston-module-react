@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, createSearchParams } from 'react-router-dom';
 
 import { useAppSelector } from '../../hooks/useAppSelector';
 
@@ -23,7 +23,7 @@ const HistoryPage = () => {
 
       <ul className='history-page'>
         {history.map(query => {
-          const path = `/search?name=${query}`;
+          const path = `/search?${createSearchParams({ 'name': query })}`;
 
           return (
             <li key={query}>

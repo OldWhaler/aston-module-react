@@ -1,15 +1,67 @@
 .search {
+  position: relative;
   margin-top: 10px;
   width: 50%;
   display: flex;
 
   column-gap: 15px;
 
-  &__input {
+  &__input-wrapper {
     flex-grow: 1;
+    position: relative;
+  }
+
+  &__input {
+    width: 100%;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 10px 44px 10px 10px;
     font-size: 20px;
     border-radius: 5px;
+  }
+
+  &__btn-cross {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    z-index: 10;
+    display: block;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: url('../../../public/images/cross-light.svg') center/auto auto no-repeat;
+    cursor: pointer;
+    transition-duration: 500ms;
+
+    &:hover {
+      background: url('../../../public/images/cross-dark.svg') center/auto auto no-repeat;
+    }
+  }
+
+  &__suggestion-list {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 4px;
+    margin: 0;
+    font-size: 18px;
+    border: 1px solid #8b8b8b;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  &__suggestion-link {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #000;
+    border-radius: 5px;
+
+    &:hover {
+      color: #fff;
+      background-color: #8b8b8b;
+    }
   }
 }
