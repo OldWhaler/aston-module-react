@@ -27,7 +27,12 @@ const CharacterPage = () => {
   };
 
   if (isLoading) return <LoadingMessageForRequest message='Данные загружаются...' />;
-  if (isError) return <ErrorMessageForRequest message='Что-то пошло не так. Попробуйте зайти позже!' />;
+  if (isError) return (
+    <>
+      <GoBackButton />
+      <ErrorMessageForRequest message='Что-то пошло не так. Попробуйте зайти позже!' />
+    </>
+  );
 
   if (character) {
     return (

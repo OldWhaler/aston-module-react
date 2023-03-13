@@ -17,7 +17,12 @@ const SearchPage = () => {
   const { data: characters, isError, isLoading } = useGetFilteredCharactersQuery(nameQuery);
 
   if (isLoading) return <LoadingMessageForRequest message='Данные загружаются...' />;
-  if (isError) return <ErrorMessageForRequest message='По Вашему запросу ничего не найдено.' />;
+  if (isError) return (
+    <>
+      <GoBackButton />
+      <ErrorMessageForRequest message='По Вашему запросу ничего не найдено.' />
+    </>
+  );
 
   if (characters) {
     return (

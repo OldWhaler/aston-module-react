@@ -3,6 +3,7 @@ import { useGetAllCharactersPerPageQuery } from '../../store';
 import { useBasicMathOperations } from '../../hooks/useBasicMathOperations';
 import { ErrorMessageForRequest } from '../ErrorMessageForRequest';
 import { LoadingMessageForRequest } from '../LoadingMessageForRequest';
+import { GoBackButton } from '../Buttons';
 
 import './CharactersList.scss';
 
@@ -15,7 +16,12 @@ const CharactersList = () => {
   } = useGetAllCharactersPerPageQuery(number);
 
   if (isLoading) return <LoadingMessageForRequest message='Данные загружаются...' />;
-  if (isError) return <ErrorMessageForRequest message='Что-то пошло не так. Попробуйте зайти позже!' />;
+  if (isError) return (
+    <>
+      <GoBackButton />
+      <ErrorMessageForRequest message='Что-то пошло не так. Попробуйте зайти позже!' />
+    </>
+  );
 
   if (characters) {
     return (
