@@ -8,6 +8,11 @@
   row-gap: 10px;
   column-gap: 10px;
 
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
+
   &__button-wrapper {
     width: 50%;
     margin: 15px 0;
