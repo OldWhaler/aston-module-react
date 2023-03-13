@@ -6,6 +6,7 @@ import { useAppSelector } from '../../hooks/useAppSelector';
 import { addToFavorites, removeFromFavorites } from '../../store';
 import { GoBackButton } from '../../components/Buttons';
 import { ErrorMessageForRequest } from '../../components/ErrorMessageForRequest';
+import { LoadingMessageForRequest } from '../../components/LoadingMessageForRequest';
 
 import './CharacterPage.scss';
 
@@ -25,8 +26,8 @@ const CharacterPage = () => {
     }
   };
 
+  if (isLoading) return <LoadingMessageForRequest message='Данные загружаются...' />;
   if (isError) return <ErrorMessageForRequest message='Что-то пошло не так. Попробуйте зайти позже!' />;
-  if (isLoading) return <h2 className='loading-message'>Данные загружаются...</h2>;
 
   if (character) {
     return (

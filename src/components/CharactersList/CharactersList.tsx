@@ -2,6 +2,7 @@ import { CharacterCard } from '../CharacterCard';
 import { useGetAllCharactersPerPageQuery } from '../../store';
 import { useBasicMathOperations } from '../../hooks/useBasicMathOperations';
 import { ErrorMessageForRequest } from '../ErrorMessageForRequest';
+import { LoadingMessageForRequest } from '../LoadingMessageForRequest';
 
 import './CharactersList.scss';
 
@@ -13,7 +14,7 @@ const CharactersList = () => {
     isLoading
   } = useGetAllCharactersPerPageQuery(number);
 
-  if (isLoading) return <h2 className='loading-message'>Данные загружаются...</h2>;
+  if (isLoading) return <LoadingMessageForRequest message='Данные загружаются...' />;
   if (isError) return <ErrorMessageForRequest message='Что-то пошло не так. Попробуйте зайти позже!' />;
 
   if (characters) {

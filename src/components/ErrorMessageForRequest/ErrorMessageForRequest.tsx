@@ -4,9 +4,9 @@ import './ErrorMessageForRequest.scss';
 
 const ErrorMessageForRequest = ({ message }: { message: string }) => {
   return (
-    <div className='error'>
+    <div className='error-message'>
       <GoBackButton />
-      <h2 className='error__message'>{message}</h2>
+      <h2 className='error-message__text'>{message}</h2>
     </div>
   );
 };

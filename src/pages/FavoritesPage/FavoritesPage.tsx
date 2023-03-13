@@ -1,6 +1,7 @@
 import { GoBackButton } from '../../components/Buttons';
 import { CharacterCard } from '../../components/CharacterCard';
 import { ErrorMessageForRequest } from '../../components/ErrorMessageForRequest';
+import { LoadingMessageForRequest } from '../../components/LoadingMessageForRequest';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { useGetMultipleCharactersQuery } from '../../store';
 
@@ -19,8 +20,8 @@ const FavoritesPage = () => {
     );
   }
 
+  if (isLoading) return <LoadingMessageForRequest message='Данные загружаются...' />;
   if (isError) return <ErrorMessageForRequest message='Что-то пошло не так. Попробуйте зайти позже!' />;
-  if (isLoading) return <h2 className='loading-message'>Данные загружаются...</h2>;
 
   if (characters) {
     return (
