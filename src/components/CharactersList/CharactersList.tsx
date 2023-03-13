@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { CharacterCard } from '../CharacterCard';
 import { useGetAllCharactersPerPageQuery } from '../../store';
 import { useBasicMathOperations } from '../../hooks/useBasicMathOperations';
@@ -28,12 +30,14 @@ const CharactersList = () => {
       <>
         <ul className='characters-list'>
           {characters.map(character => (
-            <CharacterCard
-              key={character.id}
-              character={character}
-            />
+            <li key={character.id}>
+              <Link to={`/character/${character.id}`} className='characters-list__link'>
+                <CharacterCard character={character} />
+              </Link>
+            </li>
           ))}
         </ul>
+
         <div className="characters-list__button-wrapper">
           <button
             className='button'
