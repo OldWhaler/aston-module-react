@@ -1,15 +1,16 @@
 import { useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 
 import { useGetCharacterByIdQuery } from '../../store';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
-import { addToFavorites, removeFromFavorites } from '../../store/userSlice';
+import { addToFavorites, removeFromFavorites } from '../../store';
+import { GoBackButton } from '../../components/Buttons';
+import { ErrorMessageForRequest } from '../../components/ErrorMessageForRequest';
+import { LoadingMessageForRequest } from '../../components/LoadingMessageForRequest';
 
 import './CharacterPage.scss';
 
 const CharacterPage = () => {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const { characterId = '' } = useParams();
@@ -25,13 +26,18 @@ const CharacterPage = () => {
     }
   };
 
-  if (isError) return <h2 className='error-message'>Что-то пошло не так. Попробуйте зайти позже!</h2>;
-  if (isLoading) return <h2 className='loading-message'>Данные загружаются...</h2>;
+  if (isLoading) return <LoadingMessageForRequest message='Данные загружаются...' />;
+  if (isError) return (
+    <>
+      <GoBackButton />
+      <ErrorMessageForRequest message='Что-то пошло не так. Попробуйте зайти позже!' />
+    </>
+  );
 
   if (character) {
     return (
       <>
-        <button className='button' onClick={() => navigate(-1)}>назад</button>
+        <GoBackButton />
         <div className='character-page'>
 
           {isLogged &&

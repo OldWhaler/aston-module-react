@@ -13,7 +13,7 @@ import { SearchPage } from '../../pages/SearchPage';
 
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { searchLoggedUserInLocalStorage } from '../../helpers/searchLoggedUserInLocalStorage';
-import { setUserDataFromLocalStorage } from '../../store/userSlice';
+import { setUserDataFromLocalStorage } from '../../store';
 
 import './App.scss';
 

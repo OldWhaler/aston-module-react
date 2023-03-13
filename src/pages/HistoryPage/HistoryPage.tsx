@@ -1,17 +1,17 @@
 import { Link, useNavigate, createSearchParams } from 'react-router-dom';
 
+import { GoBackButton } from '../../components/Buttons';
 import { useAppSelector } from '../../hooks/useAppSelector';
 
 import './HistoryPage.scss';
 
 const HistoryPage = () => {
-  const navigate = useNavigate();
   const history = useAppSelector(store => store.userSlice.history);
 
   if (history.length === 0) {
     return (
       <>
-        <button className='button' onClick={() => navigate(-1)}>назад</button>
+        <GoBackButton />
         <h2 className='loading-message'>У Вас нет истории поисков.</h2>
       </>
     );
@@ -19,7 +19,7 @@ const HistoryPage = () => {
 
   return (
     <>
-      <button className='button' onClick={() => navigate(-1)}>назад</button>
+      <GoBackButton />
 
       <ul className='history-page'>
         {history.map(query => {

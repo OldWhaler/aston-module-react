@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import './Button.scss';
+import './Buttons.scss';
 interface ButtonProps {
   text: string
   isColored: boolean

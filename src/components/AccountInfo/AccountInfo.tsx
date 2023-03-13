@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
-import { Button } from '../Button';
+import { Button } from '../Buttons';
 
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
-import { returnToInitialState } from '../../store/userSlice';
+import { returnToInitialState } from '../../store';
 
 import './AccountInfo.scss';
 
