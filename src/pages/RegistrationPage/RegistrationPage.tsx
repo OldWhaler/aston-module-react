@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { setNewUserDataInStore } from '../../store/userSlice';
+import { setNewUserDataInStore } from '../../store';
 import { isUserInLocalStorage } from '../../helpers/isUserInLocalStorage';
 
 import './RegistrationPage.scss';

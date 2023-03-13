@@ -9,7 +9,7 @@ import {
   addToFavorites,
   addToHistory,
   removeFromFavorites
-} from '../store/userSlice';
+} from '../store';
 
 export const localStorageMiddleware: Middleware = store => next => action => {
   switch (action.type) {

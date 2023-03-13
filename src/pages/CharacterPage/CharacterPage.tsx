@@ -1,15 +1,14 @@
 import { useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 
 import { useGetCharacterByIdQuery } from '../../store';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
-import { addToFavorites, removeFromFavorites } from '../../store/userSlice';
+import { addToFavorites, removeFromFavorites } from '../../store';
+import { GoBackButton } from '../../components/Buttons';
 
 import './CharacterPage.scss';
 
 const CharacterPage = () => {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const { characterId = '' } = useParams();
@@ -31,7 +30,7 @@ const CharacterPage = () => {
   if (character) {
     return (
       <>
-        <button className='button' onClick={() => navigate(-1)}>назад</button>
+        <GoBackButton />
         <div className='character-page'>
 
           {isLogged &&

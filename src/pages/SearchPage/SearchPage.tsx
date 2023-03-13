@@ -1,14 +1,14 @@
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import { SearchForm } from '../../components/SearchForm';
 
 import { CharacterCard } from '../../components/CharacterCard';
 import { useGetFilteredCharactersQuery } from '../../store';
+import { GoBackButton } from '../../components/Buttons';
 
 import './SearchPage.scss';
 
 const SearchPage = () => {
-  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
   const nameQuery: string = searchParams.get('name') || '';
@@ -17,7 +17,7 @@ const SearchPage = () => {
   if (isLoading) return (<h2 className='loading-message'>Данные загружаются...</h2>);
   if (isError) return (
     <>
-      <button className='button' onClick={() => navigate(-1)}>назад</button>
+      <GoBackButton />
       <h2 className='error-message'>По Вашему запросу ничего не найдено.</h2>
     </>
   );
@@ -25,7 +25,7 @@ const SearchPage = () => {
   if (characters) {
     return (
       <>
-        <button className='button' onClick={() => navigate(-1)}>назад</button>
+        <GoBackButton />
         <div className='search-page'>
           <SearchForm />
           <div className='search-page__list'>

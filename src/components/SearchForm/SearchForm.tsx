@@ -4,7 +4,7 @@ import { useNavigateSearch } from '../../hooks/useNavigateSearch';
 import { useInput } from '../../hooks/useInput';
 import { useDebounce } from '../../hooks/useDebounce';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { addToHistory } from '../../store/userSlice';
+import { addToHistory } from '../../store';
 import { useGetFilteredCharactersQuery } from '../../store';
 
 import './SearchForm.scss';

@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { setUserDataFromLocalStorage } from '../../store/userSlice';
+import { setUserDataFromLocalStorage } from '../../store';
 import { isUserInLocalStorage } from '../../helpers/isUserInLocalStorage';
 import { checkUserPasswordInLocalStorage } from '../../helpers/checkUserPasswordInLocalStorage';
 
