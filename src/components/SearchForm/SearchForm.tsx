@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import { useNavigateSearch } from '../../hooks/useNavigateSearch';
 import { useInput } from '../../hooks/useInput';
 import { useDebounce } from '../../hooks/useDebounce';
@@ -8,6 +6,7 @@ import { addToHistory } from '../../store';
 import { useGetFilteredCharactersQuery } from '../../store';
 
 import './SearchForm.scss';
+import { Suggestion } from '../Suggestion';
 
 const SearchForm = () => {
   const dispatch = useAppDispatch();
@@ -39,6 +38,7 @@ const SearchForm = () => {
           className='search__btn-cross'
           onClick={() => setValue('')}
         />
+
         <input
           className='search__input'
           type='text'
@@ -48,19 +48,10 @@ const SearchForm = () => {
           style={{ color: value.trim().length < 3 ? '#f00' : 'inherit' }}
         />
 
-        {!isError && value.length >= 3 && characters &&
-          <ul className='search__suggestion-list'>
-            {characters.slice(0, 5).map(character => {
-              return (
-                <li key={character.id}>
-                  <Link
-                    to={`/character/${character.id}`}
-                    className="search__suggestion-link"
-                  >{character.name}</Link>
-                </li>
-              );
-            })}
-          </ul>}
+        {!isError
+          && value.length >= 3
+          && characters
+          && <Suggestion characters={characters} />}
 
       </div>
       <input type='submit' className='button' value='search' />

@@ -38,30 +38,4 @@
       background: url('../../../public/images/cross-dark.svg') center/auto auto no-repeat;
     }
   }
-
-  &__suggestion-list {
-    position: absolute;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 4px;
-    margin: 0;
-    font-size: 18px;
-    border: 1px solid #8b8b8b;
-    background-color: #fff;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-
-  &__suggestion-link {
-    display: block;
-    padding: 5px 10px;
-    text-decoration: none;
-    color: #000;
-    border-radius: 5px;
-
-    &:hover {
-      color: #fff;
-      background-color: #8b8b8b;
-    }
-  }
 }

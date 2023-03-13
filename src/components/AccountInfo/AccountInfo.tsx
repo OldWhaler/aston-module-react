@@ -21,16 +21,19 @@ const AccountInfo = () => {
   return (
     <nav className='account'>
       <p className='account__name'>{login}</p>
+
       <ul className='account__row'>
-        <li><Button text='избранное' isColored={false} to='favorites' /></li>
-        <li><Button text='история' isColored={false} to='history' /></li>
         <li>
-          <button
-            className={'button button_colored'}
-            onClick={exitButtonClickHandler}
-          >выйти</button>
+          <Button text='избранное' colored={false} to='favorites' />
+        </li>
+        <li>
+          <Button text='история' colored={false} to='history' />
+        </li>
+        <li>
+          <button className={'button button_colored'} onClick={exitButtonClickHandler}>выйти</button>
         </li>
       </ul>
+
     </nav>
   );
 };
