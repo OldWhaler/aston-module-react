@@ -1,5 +1,6 @@
 import { GoBackButton } from '../../components/Buttons';
 import { CharacterCard } from '../../components/CharacterCard';
+import { ErrorMessageForRequest } from '../../components/ErrorMessageForRequest';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { useGetMultipleCharactersQuery } from '../../store';
 
@@ -18,7 +19,7 @@ const FavoritesPage = () => {
     );
   }
 
-  if (isError) return <h2 className='error-message'>Что-то пошло не так. Попробуйте зайти позже!</h2>;
+  if (isError) return <ErrorMessageForRequest message='Что-то пошло не так. Попробуйте зайти позже!' />;
   if (isLoading) return <h2 className='loading-message'>Данные загружаются...</h2>;
 
   if (characters) {

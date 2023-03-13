@@ -1,7 +1,7 @@
 import { CharacterCard } from '../CharacterCard';
 import { useGetAllCharactersPerPageQuery } from '../../store';
 import { useBasicMathOperations } from '../../hooks/useBasicMathOperations';
-import { GoBackButton } from '../Buttons';
+import { ErrorMessageForRequest } from '../ErrorMessageForRequest';
 
 import './CharactersList.scss';
 
@@ -14,12 +14,7 @@ const CharactersList = () => {
   } = useGetAllCharactersPerPageQuery(number);
 
   if (isLoading) return <h2 className='loading-message'>Данные загружаются...</h2>;
-  if (isError) return (
-    <>
-      <GoBackButton />
-      <h2 className='error-message'>Что-то пошло не так. Попробуйте зайти позже!</h2>
-    </>
-  );
+  if (isError) return <ErrorMessageForRequest message='Что-то пошло не так. Попробуйте зайти позже!' />;
 
   if (characters) {
     return (
