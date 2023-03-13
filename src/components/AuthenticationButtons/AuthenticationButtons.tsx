@@ -5,8 +5,8 @@ import './AuthenticationButtons.scss';
 const AuthenticationButtons = () => {
   return (
     <div className='authentication'>
-      <Button text='зарегистрироваться' isColored={false} to='/registration' />
-      <Button text='войти' isColored={true} to='/login' />
+      <Button text='зарегистрироваться' colored={false} to='/registration' />
+      <Button text='войти' colored={true} to='/login' />
     </div>
   );
 };

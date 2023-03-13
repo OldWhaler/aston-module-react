@@ -39,14 +39,8 @@ const CharactersList = () => {
         </ul>
 
         <div className="characters-list__button-wrapper">
-          <button
-            className='button'
-            onClick={decrement}
-          >prev</button>
-          <button
-            className='button'
-            onClick={increment}
-          >next</button>
+          <button className='button' onClick={decrement}>prev</button>
+          <button className='button' onClick={increment}>next</button>
         </div>
       </>
     );
